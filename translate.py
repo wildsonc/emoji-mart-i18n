@@ -33,11 +33,9 @@ def translate(locale):
         hexcode2 = hexcode.split("-")[0]
 
         if skin:
-            base = [
-                x
-                for x in emojibase
-                if x["hexcode"] == hexcode or x["hexcode"] == hexcode2
-            ]
+            base = [x for x in emojibase if x["hexcode"] == hexcode]
+            if not base:
+                base = [x for x in emojibase if x["hexcode"] == hexcode2]
 
             if base:
                 base = base[0]
